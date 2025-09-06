@@ -157,6 +157,14 @@ export default {
 						transform: 'translateY(100vh)',
 						opacity: '0'
 					}
+				},
+				'shimmer': {
+					'0%': {
+						backgroundPosition: '-200% 0'
+					},
+					'100%': {
+						backgroundPosition: '200% 0'
+					}
 				}
 			},
 			animation: {
@@ -165,7 +173,8 @@ export default {
 				'pulse-glow': 'pulse-glow 2s ease-in-out infinite',
 				'float': 'float 3s ease-in-out infinite',
 				'cyber-scan': 'cyber-scan 2s linear infinite',
-				'matrix-rain': 'matrix-rain 3s linear infinite'
+				'matrix-rain': 'matrix-rain 3s linear infinite',
+				'shimmer': 'shimmer 2s linear infinite'
 			}
 		}
 	},

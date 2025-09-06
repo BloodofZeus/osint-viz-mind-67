@@ -1,4 +1,36 @@
-# Welcome to your Lovable project
+# OSINT Matrix - Intelligence Analysis Platform
+
+A professional-grade OSINT (Open Source Intelligence) analysis platform with graph visualization, penetration testing tools, and reconnaissance capabilities inspired by Maltego and modern cyber intelligence workflows.
+
+## 🚀 Features
+
+### Graph Analysis Mode
+- **Interactive Node Graph**: Drag-and-drop entity relationships with real-time visualization
+- **Entity Palette**: Comprehensive collection of intelligence entities (people, emails, domains, IPs, etc.)
+- **Smart Transforms**: Automated data enrichment and relationship discovery
+- **Multi-layer Analysis**: Deep dive into connections and patterns
+
+### Penetration Testing Mode  
+- **Automated Reconnaissance**: Subdomain enumeration, port scanning, technology detection
+- **Vulnerability Assessment**: Real-time security analysis and weakness identification
+- **Network Mapping**: Visual network topology and asset discovery
+- **Intelligence Dashboard**: Comprehensive target profiling and risk assessment
+
+### Core Capabilities
+- **Real-time Scanning**: Live monitoring and analysis with progress indicators
+- **Glassmorphism UI**: Modern cyber-themed interface with dark mode design
+- **Export Functionality**: Save and share intelligence reports
+- **Collaborative Workspace**: Multi-user intelligence gathering
+
+## 🎨 Design System
+
+Built with a sophisticated cyber intelligence theme featuring:
+- **Electric Blue Primary** (`hsl(200, 100%, 60%)`) - Main actions and highlights
+- **Matrix Green Secondary** (`hsl(120, 100%, 40%)`) - Success states and confirmations  
+- **Cyber Purple Accent** (`hsl(270, 100%, 65%)`) - Special features and emphasis
+- **Glassmorphism Effects**: Semi-transparent panels with backdrop blur
+- **Neon Glow Animations**: Pulsing effects and smooth transitions
+- **Responsive Grid Layout**: Adaptive design for all screen sizes
 
 ## Project info
 
@@ -50,15 +82,33 @@ npm run dev
 - Click on "New codespace" to launch a new Codespace environment.
 - Edit files directly within the Codespace and commit and push your changes once you're done.
 
-## What technologies are used for this project?
+## 🛠️ Technology Stack
 
-This project is built with:
+- **Frontend Framework**: React 18 with TypeScript
+- **Build Tool**: Vite for lightning-fast development
+- **Styling**: Tailwind CSS with custom design system
+- **UI Components**: shadcn/ui with Radix UI primitives
+- **Icons**: Lucide React icon library
+- **State Management**: React hooks and context
+- **Charts**: Recharts for data visualization
+- **Animations**: CSS animations with cyber-themed effects
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+## 📱 Browser Support
+
+- Chrome/Chromium 90+
+- Firefox 88+
+- Safari 14+
+- Edge 90+
+
+## 🔧 Development Commands
+
+```bash
+npm run dev          # Start development server
+npm run build        # Build for production
+npm run preview      # Preview production build
+npm run lint         # Run ESLint
+npm run type-check   # Run TypeScript checks
+```
 
 ## How can I deploy this project?
 

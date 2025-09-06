@@ -10,6 +10,7 @@ import { ReconResults } from "./ReconResults";
 import { ReconToolbar } from "./ReconToolbar";
 import { TopToolbar } from "./TopToolbar";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { NotificationSystem, useNotifications } from "@/components/ui/notification-system";
 
 export const OSINTLayout = () => {
   const [selectedEntity, setSelectedEntity] = useState<any>(null);
@@ -18,15 +19,29 @@ export const OSINTLayout = () => {
   const [currentScanType, setCurrentScanType] = useState("");
   const [isScanning, setIsScanning] = useState(false);
   const [activeMode, setActiveMode] = useState<"graph" | "recon">("graph");
+  const { notifications, addNotification, removeNotification } = useNotifications();
 
   const handleScanStart = (target: string, scanType: string) => {
     setCurrentTarget(target);
     setCurrentScanType(scanType);
     setIsScanning(true);
     
+    addNotification({
+      type: "info",
+      title: "Scan Started",
+      message: `Initiating ${scanType} scan on ${target}`,
+      duration: 3000
+    });
+    
     // Simulate scan completion
     setTimeout(() => {
       setIsScanning(false);
+      addNotification({
+        type: "success",
+        title: "Scan Complete",
+        message: `${scanType} scan finished successfully`,
+        duration: 5000
+      });
     }, 5000);
   };
 
@@ -193,6 +208,12 @@ export const OSINTLayout = () => {
           </div>
         )}
       </div>
+      
+      {/* Notification System */}
+      <NotificationSystem 
+        notifications={notifications}
+        onRemove={removeNotification}
+      />
     </div>
   );
 };

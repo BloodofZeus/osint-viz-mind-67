@@ -14,6 +14,7 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
+import { TooltipProvider, TooltipRoot, TooltipTrigger, TooltipContent } from "@/components/ui/enhanced-tooltip";
 
 export const TopToolbar = () => {
   const [isScanning, setIsScanning] = useState(false);
@@ -25,7 +26,8 @@ export const TopToolbar = () => {
   };
 
   return (
-    <div className="h-16 glass border-b border-border px-6 flex items-center justify-between">
+    <TooltipProvider>
+      <div className="h-16 glass border-b border-border px-6 flex items-center justify-between">
       {/* Left Section - Logo & Title */}
       <div className="flex items-center space-x-4">
         <div className="flex items-center space-x-2">
@@ -44,62 +46,70 @@ export const TopToolbar = () => {
       {/* Center Section - Analysis Tools */}
       <div className="flex items-center space-x-2">
         <Button 
-          variant="outline" 
+          variant="cyber" 
           size="sm" 
           onClick={handleScan}
           disabled={isScanning}
-          className="border-primary/20 hover:border-primary hover:bg-primary/10"
+          className="animate-pulse-glow"
         >
           {isScanning ? (
             <RefreshCw className="w-4 h-4 mr-2 animate-spin" />
           ) : (
             <Target className="w-4 h-4 mr-2" />
           )}
-          {isScanning ? "Scanning..." : "Scan"}
+          {isScanning ? "Scanning..." : "Deep Scan"}
         </Button>
         
         <Button 
-          variant="outline" 
+          variant="matrix" 
           size="sm"
-          className="border-secondary/20 hover:border-secondary hover:bg-secondary/10"
+          className="transition-all duration-300 hover:scale-105"
         >
           <Zap className="w-4 h-4 mr-2" />
           Transform
         </Button>
         
         <Button 
-          variant="outline" 
+          variant="accent" 
           size="sm"
-          className="border-accent/20 hover:border-accent hover:bg-accent/10"
+          className="transition-all duration-300 hover:scale-105"
         >
           <Eye className="w-4 h-4 mr-2" />
-          Analyze
+          AI Analyze
         </Button>
       </div>
 
       {/* Right Section - File Operations */}
       <div className="flex items-center space-x-2">
-        <Button variant="ghost" size="sm">
+        <Button variant="glass" size="sm" className="hover:glow-primary">
           <Upload className="w-4 h-4 mr-2" />
-          Load
+          Import
         </Button>
         
-        <Button variant="ghost" size="sm">
+        <Button variant="glass" size="sm" className="hover:glow-secondary">
           <Save className="w-4 h-4 mr-2" />
-          Save
+          Save Graph
         </Button>
         
-        <Button variant="ghost" size="sm">
+        <Button variant="glass" size="sm" className="hover:glow-accent">
           <Download className="w-4 h-4 mr-2" />
-          Export
+          Export Report
         </Button>
         
         <Separator orientation="vertical" className="h-6" />
         
-        <Button variant="ghost" size="sm">
-          <Settings className="w-4 h-4" />
-        </Button>
+        <TooltipRoot>
+          <TooltipTrigger asChild>
+            <Button variant="glass" size="sm" className="hover:glow-primary">
+              <Settings className="w-4 h-4" />
+            </Button>
+          </TooltipTrigger>
+          <TooltipContent variant="cyber">
+            Application Settings
+          </TooltipContent>
+        </TooltipRoot>
       </div>
-    </div>
+      </div>
+    </TooltipProvider>
   );
 };

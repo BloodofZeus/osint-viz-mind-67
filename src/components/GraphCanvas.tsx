@@ -92,28 +92,39 @@ export const GraphCanvas = ({ selectedEntity }: GraphCanvasProps) => {
       {/* Canvas Controls */}
       <div className="absolute top-4 right-4 z-10 flex flex-col space-y-2">
         <Button 
-          variant="outline" 
+          variant="glass" 
           size="sm" 
           onClick={zoomIn}
-          className="glass border-primary/20 hover:border-primary"
+          className="hover:glow-primary transition-all duration-300"
+          title="Zoom In"
         >
           <Plus className="w-4 h-4" />
         </Button>
         <Button 
-          variant="outline" 
+          variant="glass" 
           size="sm" 
           onClick={zoomOut}
-          className="glass border-primary/20 hover:border-primary"
+          className="hover:glow-primary transition-all duration-300"
+          title="Zoom Out"
         >
           <Minus className="w-4 h-4" />
         </Button>
         <Button 
-          variant="outline" 
+          variant="glass" 
           size="sm" 
           onClick={resetView}
-          className="glass border-primary/20 hover:border-primary"
+          className="hover:glow-secondary transition-all duration-300"
+          title="Reset View"
         >
           <RotateCcw className="w-4 h-4" />
+        </Button>
+        <Button 
+          variant="glass" 
+          size="sm"
+          className="hover:glow-accent transition-all duration-300"
+          title="Fit to Screen"
+        >
+          <Maximize2 className="w-4 h-4" />
         </Button>
       </div>
 
