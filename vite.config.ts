@@ -6,8 +6,10 @@ import { componentTagger } from "lovable-tagger";
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
   server: {
-    host: "::",
+    host: "localhost",
     port: 8080,
+    open: true, // Automatically open browser on Windows
+    strictPort: false, // Allow fallback to different port if 8080 is busy
   },
   plugins: [
     react(),
@@ -17,6 +19,18 @@ export default defineConfig(({ mode }) => ({
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
+    },
+  },
+  build: {
+    outDir: "dist",
+    sourcemap: false,
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          vendor: ['react', 'react-dom'],
+          ui: ['@radix-ui/react-tooltip', '@radix-ui/react-dialog'],
+        },
+      },
     },
   },
 }));
