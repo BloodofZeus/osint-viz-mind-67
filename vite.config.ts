@@ -6,10 +6,11 @@ import { componentTagger } from "lovable-tagger";
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
   server: {
-    host: "localhost",
+    host: true, // Allow external connections (fixes "Blocked request" error)
     port: 8080,
     open: true, // Automatically open browser on Windows
     strictPort: false, // Allow fallback to different port if 8080 is busy
+    cors: true, // Enable CORS for all origins
   },
   plugins: [
     react(),
